@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size</title>
+    <style>
+        .tag{
+            display: inline-block;
+            background-color: thistle;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag">Window Size</div>
+    <script>
+        const tag = document.querySelector('.tag');
+        function updateTag() {
+            tag.innerHTML = `
+                window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+                window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+                window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+                documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight} <br/>
+            `; 
+            // tag안에 새로운 html요소를 넣을 것이다.
+            // screen 모니터의 해상도 즉 브라우저 밖에 있는 아이들까지 다 합한 나의 모니터 사이즈 의미
+            // outer 전체적인 브라우저 사이즈 의미 (url, 탭창 포함)
+            // inner url 창 제외한 바로 밑부터 수직, 수평 스크롤바 포함 페이지가 표시되는 전체 페이지 사이즈 의미
+            // documentElement.client 는 문서 자체 의미 즉 문서를 의미하는 것. 수평, 수직 스크롤바는 윈도우 브라우저에 속해있기 때문에 제외되는 사이즈.
+            // 즉, 순수 문서 페이지 사이즈 의미  
+        }
+        window.addEventListener('resize', () => {
+            updateTag();
+        });
+        updateTag();
+    </script>
+</body>
+</html>
