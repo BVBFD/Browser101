@@ -46,6 +46,10 @@
       h2.setAttribute('class', 'title'); // <h2 class="title"></h2>
       h2.textContent = 'This is a title'; // <h2 class="title">This is a title</h2>
       // section.appendChild(h2);
+      // innerText는 textContent처럼 값을 가져오거나 입력할수 있음
+      // 하지만 innerText는 공백무시하고 값을 가지고 오며,
+      // textContent는 공백 무시하지 않고 값 가지고 옴.
+      // replaceWith도 같이 알아 놓을 것!
       const h3 = document.querySelector('h3');
       section.insertBefore(h2, h3);
 
