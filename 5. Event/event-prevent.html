@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 250px;
+        height: 250px;
+        background-color: yellow;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="checkbox" />
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      document.addEventListener('wheel', event => {
+        console.log('scrolling');
+        event.preventDefault();
+      }, { passive: false });
+      // passive(노티스만 하고 수동적으로 대처)에 해당되는 리스너는 브라우저가 리스너에게 이벤트가 일어났다는 것만 노티스하고 자기할일(예를 들어 크롤링 같은)을 함
+      // passive에는 preventDefault()를 쓰지 않는 것을 권장. (무시당함)
+      // 굳이 쓰겠다면 { passive: false } 오브젝트 옵션으로 추가.
+
+      const checkbox = document.querySelector('input');
+      checkbox.addEventListener('click', event => {
+        // long
+        console.log('checked');
+        event.preventDefault();
+      });
+      // active(노티스 하고 능동적으로 대처)에 해당되는 리스너는 브라우저가 리스너가 할 일을 할 때까지 기다려주고 실행(예를 들어 체크박스에 체크표시하기)을 함
+    </script>
+  </body>
+</html>
