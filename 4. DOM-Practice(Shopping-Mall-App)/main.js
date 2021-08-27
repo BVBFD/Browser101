@@ -61,11 +61,24 @@ addBtn.addEventListener('click', () => {
     onAdd();
 });
 
-input.addEventListener('keypress', (event) => {
+input.addEventListener('keydown', (event) => {
+
+    if(event.key === 'a'){
+        event.preventDefault();
+    }
+
+    if(event.isComposing){
+        return;
+    }
+    // 글자가 만들어지고 있는 중에 발생하는 이벤트는 무시
+
     if(event.key === 'Enter'){
         onAdd();
     }
 });
+// keypress는 deprecated 되어 버림
+// keydown(누르면 이벤트 발생), keyup(떼면 이벤트 발생) 차이점 알아두기.
+
 
 items.addEventListener('click', (event) => {
     const id = event.target.dataset.id
