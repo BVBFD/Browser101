@@ -2,6 +2,7 @@ const items = document.querySelector('.items');
 const input = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__button');
 const delBtn = document.querySelector('.item__delete');
+const newForm = document.querySelector('.new-form');
 
 // 1. 먼저 input 값을 받고
 // 2. 플러스 버튼 누르면 추가되는 단계로 넘어가고
@@ -57,27 +58,31 @@ function onAdd(){
 //     return item;
 // };
 
-addBtn.addEventListener('click', () => {
+newForm.addEventListener('submit', (event) => {
+    event.preventDefault();
     onAdd();
 });
+// addBtn.addEventListener('click', () => {
+//     onAdd();
+// });
 
-input.addEventListener('keydown', (event) => {
+// input.addEventListener('keydown', (event) => {
 
-    if(event.key === 'a'){
-        event.preventDefault();
-    }
+//     if(event.key === 'a'){
+//         event.preventDefault();
+//     }
 
-    if(event.isComposing){
-        return;
-    }
-    // 글자가 만들어지고 있는 중에 발생하는 이벤트는 무시
+//     if(event.isComposing){
+//         return;
+//     }
+//     // 글자가 만들어지고 있는 중에 발생하는 이벤트는 무시
 
-    if(event.key === 'Enter'){
-        onAdd();
-    }
-});
-// keypress는 deprecated 되어 버림
-// keydown(누르면 이벤트 발생), keyup(떼면 이벤트 발생) 차이점 알아두기.
+//     if(event.key === 'Enter'){
+//         onAdd();
+//     }
+// });
+// // keypress는 deprecated 되어 버림
+// // keydown(누르면 이벤트 발생), keyup(떼면 이벤트 발생) 차이점 알아두기.
 
 
 items.addEventListener('click', (event) => {
