@@ -17,10 +17,13 @@
             </button>
             <span class="game__timer">00:00</span>
             <span class="game__score">9</span>
+            <!-- flex박스 안에서는 모든 요소들이 다 블럭요소가 됨 -->
+            <!-- 그래서 width, height이 적용됨 -->
+            <!-- 원래 inline element는 원래 width, height 적용안됨 -->
         </header>
         <section class="game__field"></section>
     </section>
-    <section class="pop-up">
+    <section class="pop-up pop-up--hide">
         <button class="pop-up__refresh">
             <i class="fas fa-redo"></i>
         </button>
